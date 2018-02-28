@@ -1,0 +1,26 @@
+{
+  "name": "ng-classifieds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilsmg/angular1-starter-course-master.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhilsmg/angular1-starter-course-master/issues"
+  },
+  "homepage": "https://github.com/nikhilsmg/angular1-starter-course-master#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-material": "^1.1.7",
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "mdi": "^2.1.19"
+  }
+}
