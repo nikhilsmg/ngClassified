@@ -6,9 +6,53 @@
     
     app.controller("classifiedsController", function($scope, $http){
         
+        //get json data
         $http.get('data/classifieds.json').then(function(classifieddata){
             $scope.classifieds = classifieddata.data;
-        })
+        });
+
+        //to push contact details to all added new item
+        var contact={
+            name: "Nikhil S",
+            phone: "999-9999-999",
+            email: "nikhilsshimogga@gmail.com"
+        };
+
+        //to add new item
+        $scope.saveClassified = function(classifiedd){
+            if(classifiedd.title!=null && classifiedd.image!=null)
+            {
+                classifiedd.contact=contact;
+                $scope.classifieds.push(classifiedd);
+                $scope.classifiedd = {};
+                var message="item added successfully";
+                snackbarFunction(message);              //pass the message
+                closeNav();
+            }
+        };
+
+        // to edit item
+        $scope.editclassified = function(classified){   //classified is the current edditing object
+            $scope.showEdit=true;
+            openNav();
+            $scope.classifiedd = classified;        //to get the edited data in the fields see ng-model in the form
+        }
+
+        $scope.saveEdited = function(){
+            $scope.showEdit=false;
+            $scope.classifiedd = {};
+            var message="item editted successfully";
+            snackbarFunction(message);                      //pass the message
+            closeNav();
+
+        }
+
+        $scope.deleteclassified = function(classified){
+            var index = $scope.classifieds.indexOf(classified);
+            if(confirm("Are you sure want to delete?")){
+                $scope.classifieds.splice(index,1);
+            }
+        }
         
     });
 })();
