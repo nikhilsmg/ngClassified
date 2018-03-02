@@ -1,0 +1,80 @@
+<!-- search -->
+<input calss="form-control" type="text" placeholder="Search" ng-model="classifiedFilter">
+<!-- cards start with repeat -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" ng-repeat="classified in classifieds | filter: classifiedFilter">
+            <div class="card" style="margin-top:10px;">
+                <!-- image -->
+                <img class="card-img-top" ng-src="{{classified.image}}" alt="Card image" >
+                
+                <div class="card-body">
+                    <!-- Details -->
+                    <div ng-show="!showContact">
+                        <h4 class="card-title">{{classified.title}}</h4>
+                        <p class="card-text">{{classified.price | currency}}</p>
+                        <p class="card-text">{{classified.description | uppercase}}</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div ng-show="showContact">
+                        <div class="fa fa-user"><span class="card-text"> {{ classified.contact.name }} </span></div> <br>
+                        <div class="fa fa-volume-control-phone"> <span class="card-text"> {{ classified.contact.phone}}</span></div> <br>
+                        <div class="fa fa-envelope"><span class="card-text"> {{classified.contact.email}}</span></div> <br>
+                    </div>
+                    
+                    <!-- button contact and Details -->
+                    <div style="margin-top:10px;">
+                        <button class="btn btn-info" ng-click="showContact=true" ng-show="!showContact">Contact</button>
+                        <button class="btn btn-info" ng-click="showContact=false" ng-show="showContact">Details</button>
+                        <button class="btn btn-info" ng-click="showAdmin=true" ng-show="!showAdmin">Admin</button>
+                        <button class="btn btn-info" ng-click="showAdmin=false" ng-show="showAdmin">Close</button>
+                    </div>
+
+                    <div style="margin-top:10px;" ng-show="showAdmin">
+                        <h4>Admin</h4>
+                        <!-- editclassified() with classified i.e., ref object got from ng-repeat -->
+                        <button class="btn btn-success" ng-click="editclassified(classified)">Edit</button>
+                        <button class="btn btn-danger" ng-click="deleteclassified(classified)">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- sideNav -->
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="container">
+                <h2>Item</h2>
+                <form>
+                  <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" ng-model="classifiedd.title"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" ng-model="classifiedd.price">
+                  </div>
+                  <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" placeholder="Enter description" name="description" ng-model="classifiedd.description"></textarea>
+                      </div>
+                  <div class="form-group">
+                         <label for="image">Image:</label>
+                         <input type="url" class="form-control" id="image" placeholder="Enter image link" name="image" ng-model="classifiedd.image">
+                      </div>
+                      <!-- saveClassified() sends the ng-model data i.e., classifiedd -->
+                  <button type="submit" class="btn btn-primary" ng-click="saveClassified(classifiedd)" ng-show="!showEdit">Save</button>
+                  <button type="submit" class="btn btn-primary" ng-click="saveEdited()" ng-show="showEdit">Save-Edit</button>
+                  <button type="reset" class="btn btn-info" ng-show="!showEdit">Reset</button>
+                  <button class="btn btn-danger" onclick="closeNav()">Cancel</button>
+                </form>
+              </div>
+</div>
+
+
+<!-- snackbar shows on successfully item added in classifieds.ctr.js -->
+<div id="snackbar">message </div>

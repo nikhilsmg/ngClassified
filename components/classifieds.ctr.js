@@ -41,7 +41,7 @@
         $scope.saveEdited = function(){
             $scope.showEdit=false;
             $scope.classifiedd = {};
-            var message="item editted successfully";
+            var message="item edited successfully";
             snackbarFunction(message);                      //pass the message
             closeNav();
 
@@ -51,8 +51,12 @@
             var index = $scope.classifieds.indexOf(classified);
             if(confirm("Are you sure want to delete?")){
                 $scope.classifieds.splice(index,1);
+                var message="item deteted..!!";
+                snackbarFunction(message);              //pass the message
             }
         }
         
     });
+
+    
 })();
