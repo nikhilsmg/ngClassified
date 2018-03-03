@@ -2,7 +2,7 @@
   "name": "ng-classifieds",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,15 +18,10 @@
   "homepage": "https://github.com/nikhilsmg/angular1-starter-course-master#readme",
   "dependencies": {
     "angular": "^1.6.9",
-    "angular-material": "^1.1.7",
     "angular-route": "^1.6.9",
     "bootstrap": "^4.0.0",
-    "bootstrap-confirmation": "0.0.2",
     "bootstrap3": "^3.3.5",
     "font-awesome": "^4.7.0",
-    "glyphicons": "^0.2.0",
-    "jquery": "^3.3.1",
-    "jquery-confirm": "^3.3.2",
-    "mdi": "^2.1.19"
+    "jquery": "^3.3.1"
   }
 }

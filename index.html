@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ngClassifieds">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,9 @@
     <!-- snackbar shows on successfully item added in classifieds.ctr.js -->
     <link rel="stylesheet" href="css/snackBar.css">
     
-    <title>ngClassifieds</title>
+    <title ng-bind="'App &mdash; ' + title">App</title>
 </head>
-<body ng-app="ngClassifieds" ng-controller="classifiedsController">    
+<body  ng-controller="classifiedsController">    
     <!-- header include -->
     <div ng-include="'views/header.html'"></div>
     <!--router -->

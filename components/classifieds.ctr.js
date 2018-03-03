@@ -24,7 +24,7 @@
             {
                 classifiedd.contact=contact;
                 $scope.classifieds.push(classifiedd);
-                $scope.classifiedd = {};
+                $scope.classifiedd = {};                   //to empty the fields
                 var message="item added successfully";
                 snackbarFunction(message);              //pass the message
                 closeNav();
@@ -38,6 +38,7 @@
             $scope.classifiedd = classified;        //to get the edited data in the fields see ng-model in the form
         }
 
+        //after the saveEdit button clicked
         $scope.saveEdited = function(){
             $scope.showEdit=false;
             $scope.classifiedd = {};
@@ -47,6 +48,7 @@
 
         }
 
+        //to delete item
         $scope.deleteclassified = function(classified){
             var index = $scope.classifieds.indexOf(classified);
             if(confirm("Are you sure want to delete?")){
